@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+   <link rel="stylesheet" href="login.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="message" th:if="${param.error}">
+        Invalid Username or Password
+    </div>
+    <div class="message" th:if="${param.logout}">
+        Logout Successfuly
+    </div>
+    <form
+            th:action="@{/login}"
+            method="post"
+    >
+
+        <div class="wrapper">
+            <div class="form-box login">
+                <h2 style="margin-top:0.5px">Login</h2>
+
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                        <input type="email" id="username" name="username" required>
+                        <label for="username">Email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                        <input type="password" id="password" name="password" required>
+                        <label for="password" style="left:40px">Password</label>
+                    </div>
+                    <div class="remember-forgot">
+                        <label><input type="checkbox">
+                            Remember Me</label>
+                    </div>
+                    <input type="submit" class="btn" value="Login">
+                    <div class="login-register">
+                        <p>Don't have an account?<a th:href="@{registration}" class="register-link">Register</a></p>
+                    </div>
+
+            </div>
+        </div>
+
+    </form>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</div>
+</body>
+</html>
